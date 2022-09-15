@@ -9,8 +9,10 @@ router.post('/addemployee', async (req, res) => {
     var insertedKey = await interface.addEmployee(newEmployee);
     if(insertedKey == null)
         console.log("Something went wrong");
-    else
+    else {
+        res.render("insert-success")
         console.log("Inserted successfully.")
+    }
 })
 
 module.exports = router
