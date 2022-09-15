@@ -5,6 +5,134 @@
     <title>Add a new Employee</title>
 </head>
 <body>
+<h1>Add an employee</h1>
+{% if errormessage %}
+<div class="govuk-error-message">{{ errormessage }}</div>
+{% endif %}
+
+<form method="POST" action="addemployee">
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{{ govukInput({
+label: {
+text: "First name:",
+classes: "govuk-label--l"
+},
+id: "fname",
+name: "fname"
+}) }}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{{ govukInput({
+label: {
+text: "Last name:",
+classes: "govuk-label--l"
+},
+id: "lname",
+name: "lname"
+}) }}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{{ govukInput({
+label: {
+text: "Postcode:",
+classes: "govuk-label--l"
+},
+id: "postcode",
+name: "postcode"
+}) }}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{{ govukInput({
+label: {
+text: "Address:",
+classes: "govuk-label--l"
+},
+id: "address",
+name: "address"
+}) }}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{{ govukInput({
+label: {
+text: "NIN:",
+classes: "govuk-label--l"
+},
+id: "nin",
+name: "nin"
+}) }}
+
+{{ govukInput({
+label: {
+text: "Bank Account:",
+classes: "govuk-label--l"
+},
+id: "bankAccount",
+name: "bankAccount"
+}) }}
+
+{{ govukInput({
+label: {
+text: "Starting Salary:",
+classes: "govuk-label--l"
+},
+id: "startingSalary",
+name: "startingSalary"
+}) }}
+
+<!--- Radio for department--->
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+idPrefix: "departmnet",
+name: "department",
+fieldset: {
+legend: {
+text: "Department:",
+classes: "govuk-fieldset__legend--l"
+}
+},
+items: [
+{
+value: "SALES",
+text: "Sales"
+},
+{
+value: "HR",
+text: "HR"
+},
+{
+value: "FINANCE",
+text: "Finance"
+}
+]
+}) }}
+
+{{ govukRadios({
+idPrefix: "is_manager",
+name: "is_manager",
+fieldset: {
+legend: {
+text: "Is the employee a manager?",
+classes: "govuk-fieldset__legend--l"
+}
+},
+items: [
+{
+value: 1,
+text: "Yes"
+},
+{
+value: 0,
+text: "No"
+}
+]
+}) }}
+
+    <button class="govuk-button" type="submit" data-module="govuk-button">Continue</button>
+
+</form>
 
 </body>
 </html>
