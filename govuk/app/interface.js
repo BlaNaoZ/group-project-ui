@@ -6,7 +6,7 @@ exports.getEmployees = async () => {
     try{
         const viewEmployee = await axios.get('http://localhost:8080/api/report/hr')
         console.log(viewEmployee.data)
-        return viewEmployee.data;
+        return viewEmployee.data.list;
 
     }
     catch(e) {

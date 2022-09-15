@@ -8,7 +8,7 @@ const employee = require('./interface.js')
 router.get('/view-hr-employee', async (req, res) => {
     var result = await employee.getEmployees()
     res.render('view-hr-employee', {
-    employees: result.getEmployeesNames
+    employees: result
     });
 })
 
