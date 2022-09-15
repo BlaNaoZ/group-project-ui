@@ -1,0 +1,34 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+            Management System
+            <span class="govuk-caption-xl">HR Employee Report</span>
+        </h1>{{releaseVersion | log }}
+        <p>
+            Please see below for HR employees
+        </p>
+
+        {% set employeerows = [] %}
+        {% for employee in employees %}
+        {% set employeerows = (employeerows.push([{text: employee.fname}, {text: employee.lname}, {text: employee.department}]), employeerows) %}
+        {% endfor %}
+        {{govukTable({
+        head: [ { text: "First Name" },{ text: "Last Name" },{ text: "Department" }],
+        rows: employeerows })
+        }}
+
+
+
+
+    </div>
+</div>
+
+{% endblock %}
