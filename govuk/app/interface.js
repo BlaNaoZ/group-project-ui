@@ -15,3 +15,16 @@ exports.getEmployees = async () => {
     }
     return("Could not return HR employees")
 }
+
+
+exports.addEmployee = async (newEmployee) => {
+    try {
+        var insertIndex = await axios.post('http://localhost:8080/api/enter/employee', newEmployee)
+        return insertIndex;
+    }
+    catch(e) {
+        console.log(e);
+        return null;
+    }
+}
+
