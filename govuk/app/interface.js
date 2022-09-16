@@ -33,7 +33,19 @@ exports.getHighestSalesEmployee = async () => {
 
 exports.addEmployee = async (newEmployee) => {
     try {
-        var insertIndex = await axios.post('http://localhost:8080/api/enter/employee', newEmployee)
+        console.log(newEmployee)
+        var insertIndex = await axios.post('http://localhost:8080/api/enter/employee', newEmployee);
+        return insertIndex;
+    }
+    catch(e) {
+        console.log(e);
+        return null;
+    }
+}
+
+exports.addSalesEmployee = async (newSalesEmployee) => {
+    try {
+        var insertIndex = await axios.post('http://localhost:8080/api/enter/salesEmployee', newSalesEmployee);
         return insertIndex;
     }
     catch(e) {

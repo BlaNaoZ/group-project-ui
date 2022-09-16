@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Additional Sales Data</title>
+</head>
+<body>
+<h1>Additional Details for Sales Employee</h1>
+<form method ="POST" action="addsalesemployee">
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+    {{ govukInput({
+    label: {
+    text: "Commission Rate:",
+    classes: "govuk-label--l"
+    },
+    id: "commissionRate",
+    name: "commissionRate"
+    }) }}
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+    {{ govukInput({
+    label: {
+    text: "Sales Total:",
+    classes: "govuk-label--l"
+    },
+    id: "salesTotal",
+    name: "salesTotal"
+    }) }}
+
+    <input type="hidden" name="fname" value="{{data['fname']}}">
+    <input type="hidden" name="lname" value="{{data['lname']}}">
+    <input type="hidden" name="postcode" value="{{data['postcode']}}">
+    <input type="hidden" name="address" value="{{data['address']}}">
+    <input type="hidden" name="nin" value="{{data['nin']}}">
+    <input type="hidden" name="bankAccount" value="{{data['bankAccount']}}">
+    <input type="hidden" name="startingSalary" value="{{data['startingSalary']}}">
+    <input type="hidden" name="isManager" value="{{data['isManager']}}">
+    <input type="hidden" name="department" value="{{data['department']}}">
+
+    <button class="govuk-button" type="submit" data-module="govuk-button">Continue</button>
+
+</form>
+
+</body>
+</html>
+{% endblock %}
