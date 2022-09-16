@@ -16,6 +16,36 @@ exports.getEmployees = async () => {
     return("Could not return HR employees")
 }
 
+exports.getSalesEmployees = async () => {
+    let Employees = []
+    try{
+        const viewEmployee = await axios.get('http://localhost:8080/api/report/sales')
+        console.log(viewEmployee.data)
+        return viewEmployee.data.list;
+
+    }
+    catch(e) {
+        console.log(e);
+
+    }
+    return("Could not return HR employees")
+}
+
+exports.getFinanceEmployees = async () => {
+    let Employees = []
+    try{
+        const viewEmployee = await axios.get('http://localhost:8080/api/report/finance')
+        console.log(viewEmployee.data)
+        return viewEmployee.data.list;
+
+    }
+    catch(e) {
+        console.log(e);
+
+    }
+    return("Could not return HR employees")
+}
+
 exports.getHighestSalesEmployee = async () => {
     let Employees = []
     try{

@@ -26,6 +26,18 @@ router.get('/view-hr-employee', async (req, res) => {
     employees: result
     })});
 
+router.get('/view-sales-employee', async (req, res) => {
+    var result = await employee.getSalesEmployees()
+    res.render('view-hr-employee', {
+    employees: result
+    })});
+
+router.get('/view-finance-employee', async (req, res) => {
+    var result = await employee.getFinanceEmployees()
+    res.render('view-hr-employee', {
+    employees: result
+    })});
+
 router.get('/view-finance-report', async (req, res) => {
     var result = await employee.getFinanceReport()
     res.render('view-finance-report', {
