@@ -16,6 +16,20 @@ exports.getEmployees = async () => {
     return("Could not return HR employees")
 }
 
+exports.getHighestSalesEmployee = async () => {
+    let Employees = []
+    try{
+        const viewEmployee = await axios.get('http://localhost:8080/api/getHighestEarningEmployee')
+        console.log(viewEmployee.data)
+        Employees.push(viewEmployee.data)
+        return Employees;
+    }
+    catch(e) {
+        console.log(e);
+
+    }
+    return("Could not return Highest Sales employee")
+}
 
 exports.addEmployee = async (newEmployee) => {
     try {
