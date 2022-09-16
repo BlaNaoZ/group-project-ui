@@ -53,4 +53,18 @@ exports.addSalesEmployee = async (newSalesEmployee) => {
         return null;
     }
 }
+exports.getFinanceReport = async () => {
+    let Employees = []
+    try{
+        const viewEmployee = await axios.get('http://localhost:8080/api/finance/report')
+        console.log(viewEmployee.data)
+        return viewEmployee.data.list;
+
+    }
+    catch(e) {
+        console.log(e);
+
+    }
+    return("Could not return Finance Report")
+}
 
