@@ -18,7 +18,7 @@ Home – GOV.UK Prototype Kit
 
     {% set employeerows = [] %}
     {% for employee in employees %}
-    {% set employeerows = (employeerows.push([{text: employee.fname}, {text: employee.lname}, {text: employee.starting_salary}]), employeerows) %}
+    {% set employeerows = (employeerows.push([{text: employee.fname}, {text: employee.lname}, {text: employee.startingSalary}]), employeerows) %}
     {% endfor %}
     {{govukTable({
     head: [ { text: "First Name" },{ text: "Last Name" },{ text: "Salary" }],
