@@ -24,7 +24,13 @@ router.get('/view-hr-employee', async (req, res) => {
     var result = await employee.getEmployees()
     res.render('view-hr-employee', {
     employees: result
-    });
+    })});
+
+router.get('/view-highest-earning-employee', async (req, res) => {
+    var result = await employee.getHighestSalesEmployee()
+    res.render('view-highest-earning-employee', {
+    employees: result
+     })});
 
 router.post('/addemployee', async (req, res) => {
     var newEmployee = req.body;
@@ -37,6 +43,7 @@ router.post('/addemployee', async (req, res) => {
         console.log("Inserted successfully.")
     }
 });
+
 
 router.post('/addsalesemployee', async(req, res) => {
     var newSalesEmployee = req.body;
